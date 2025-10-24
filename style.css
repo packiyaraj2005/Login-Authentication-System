@@ -1,0 +1,183 @@
+/* Import Poppins font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #25252b; /* Dark background */
+}
+
+/* --- Login Page Container Styles --- */
+.container {
+    position: relative;
+    width: 750px;
+    height: 450px;
+    background: #333; 
+    border: 2px solid #ff2770;
+    box-shadow: 0 0 25px rgba(255, 39, 112, 0.6);
+    display: flex; 
+    border-radius: 10px;
+}
+
+/* --- Result Page Container Styles --- */
+.result-page-body {
+    background: #25252b; 
+}
+.result-container {
+    width: 650px;
+    height: auto; 
+    background: #333;
+    border: 2px solid #ff2770;
+    box-shadow: 0 0 25px rgba(255, 39, 112, 0.6);
+    border-radius: 10px;
+    padding: 30px; 
+    display: flex;
+    flex-direction: column;
+}
+.result-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* --- Form Box Styles (Login) --- */
+.container .form-box {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+    padding: 0 40px;
+    background-color: #333; 
+    z-index: 10; 
+}
+.form-box.login {
+    left: 0;
+    transform: translateX(0); 
+}
+
+/* --- Info Box Styles (The Welcome Back side) --- */
+.info-box {
+    width: 50%; 
+    height: 100%;
+    background: linear-gradient(to top right, #ff2770, #a81c4c); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%); 
+    z-index: 5; 
+}
+
+/* --- Input Field Styles --- */
+.input-box {
+    position: relative;
+    width: 100%;
+    margin: 30px 0;
+}
+.input-box input {
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    border-bottom: 2px solid #fff;
+    padding: 0 5px 0 0; 
+}
+
+/* Style fixes for date input */
+.input-box input[type="date"] {
+    /* Hides the default browser calendar icon/button */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+/* This makes the selected date visible in white */
+.input-box input[type="date"]:valid {
+    color: #fff;
+}
+/* Ensure the label is hidden/moved when a date is selected */
+.input-box input[type="date"]:focus ~ label,
+.input-box input[type="date"]:valid ~ label {
+    top: -15px; 
+    color: #ff2770;
+    font-size: 14px;
+}
+/* Hide the native calendar icon in some browsers like Firefox */
+.input-box input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+/* --- Remaining General Styles --- */
+.input-box label {
+    position: absolute; top: 50%; left: 0; transform: translateY(-50%);
+    font-size: 16px; color: #fff; pointer-events: none; transition: 0.5s;
+}
+.input-box input:focus ~ label, .input-box input:valid ~ label {
+    top: -15px; color: #ff2770; font-size: 14px;
+}
+.input-box i {
+    position: absolute; top: 50%; right: 0; font-size: 18px;
+    transform: translateY(-50%); transition: 0.5s;
+}
+.input-box input:focus ~ i, .input-box input:valid ~ i { color: #ff2770; }
+.btn {
+    width: 100%; height: 45px; margin-top: 15px;
+    background: linear-gradient(90deg, #ff2770, #c41e57); 
+    border: none; outline: none; border-radius: 25px;
+    color: #fff; font-size: 18px; font-weight: 700;
+    cursor: pointer; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); transition: 0.3s ease;
+}
+.btn:hover { background: linear-gradient(90deg, #ff4a85, #e02464); }
+
+/* --- Result Content Styles --- */
+.report-title {
+    font-size: 30px; color: #ff2770; width: 100%; margin-bottom: 25px;
+    border-bottom: 2px solid #ff2770; padding-bottom: 10px;
+}
+#resultDetails {
+    width: 100%; font-size: 15px; line-height: 1.8; margin-bottom: 30px;
+}
+#resultDetails strong {
+    color: #ff2770; font-size: 16px; display: block; margin-top: 15px;
+}
+.cgpa-value {
+    color: #fff; font-weight: 700; font-size: 20px; display: block; margin-top: 5px;
+}
+.back-btn {
+    width: 100%; margin-top: 20px; text-align: center; text-decoration: none; 
+}
+
+/* ... (Include remaining CSS from previous answers: h2, reg-link, info-text and media queries) */
+@media (max-width: 768px) {
+    .container, .result-container {
+        width: 90%; max-width: 400px; height: auto; 
+        flex-direction: column; box-shadow: none; border: none;
+        overflow: visible; padding: 20px 0; 
+    }
+    .container .form-box {
+        width: 100%; padding: 40px 20px; background-color: #25252b; 
+        border: 2px solid #ff2770; box-shadow: 0 0 15px rgba(255, 39, 112, 0.6);
+        border-radius: 10px;
+    }
+    .info-box { display: none; }
+    .result-container { padding: 20px; }
+}
